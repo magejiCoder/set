@@ -1,4 +1,4 @@
-name: gen
+name: set
 
 on:
   push:
@@ -22,6 +22,6 @@ jobs:
           ./make.bash
           echo "::set-env name=GOROOT::$HOME/gotip"
           echo "::add-path::$HOME/gotip/bin"
-    name: Unit Test
-    run: |
-      go test -v ./...
+      - name: unit-test
+        run: |
+         go test -v ./...
