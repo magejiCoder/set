@@ -1,4 +1,4 @@
-name: set
+name: "UnitTest"
 
 on:
   push:
