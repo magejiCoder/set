@@ -11,17 +11,13 @@ jobs:
     runs-on: ubuntu-20.04
     strategy:
       matrix:
-        go: [ 'gotip' ]
+        go: [ 'go1.18beta1' ]
     name: Go install
     steps:
       - uses: actions/checkout@v2
-      - name: Setup gotip
+      - name: Setup go
         run: |
-          git clone --depth=1 https://go.googlesource.com/go $HOME/gotip
-          cd $HOME/gotip/src
-          ./make.bash
-          echo "::set-env name=GOROOT::$HOME/gotip"
-          echo "::add-path::$HOME/gotip/bin"
+          go version
       - name: Testing
         run: |
           go test -v ./... -race -cover
