@@ -15,10 +15,10 @@ jobs:
     name: Go install
     steps:
       - uses: actions/checkout@v2
-      - name: Setup go
+      - name: Setup
         uses: actions/setup-go@v2
         with:
           go-version: go1.18beta1
-        run: |
+      - run: |
           go version
           go test -v ./... -race -cover
